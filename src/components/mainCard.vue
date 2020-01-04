@@ -8,7 +8,7 @@
     </div>
     <div class="theme-image">
       <div class="image-wrapper">
-          <img src="../assets/logo.png" />
+          <img :src="data.image" />
       </div>
     </div>
   </a>

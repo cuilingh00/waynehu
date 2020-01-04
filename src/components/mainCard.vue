@@ -1,7 +1,7 @@
 <template>
   <a class="theme" :href="data.url" target="_blank">
     <div class="theme-text">
-      <img src="" />
+      <img :src="data.logo" />
       <div class="title">{{data.title}}</div>
       <div class="description">{{data.description}}</div>
       <div class="label">{{data.label}}</div>
@@ -49,10 +49,10 @@ export default {
         height: 54px;
       }
       .title {
-        margin-top: 50px;
-        margin-bottom: 20px;
-        font-size: 24px;
-        line-height: 33px;
+        margin-top: 54px;
+        margin-bottom: 12px;
+        font-size: 20px;
+        line-height: 24px;
         font-weight: 500;
         color:rgba(64, 64, 64, 1);
       }
@@ -68,7 +68,7 @@ export default {
         font-size: 12px;
         line-height: 17px;
         font-weight: 400;
-        color: rgba(128, 124, 124, 1)
+        color: #a3a3a3;
       }
     }
     &-image {

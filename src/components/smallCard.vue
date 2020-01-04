@@ -1,7 +1,7 @@
 <template>
   <a :href="data.url" target="_blank" class="blog">
     <div class="blog-image">
-      <img src="../assets/logo.png" />
+      <img :src="data.image" />
     </div>
     <div class="blog-content">
       <div class="title">{{data.title}}</div>
@@ -49,12 +49,12 @@ export default {
       }
     }
     &-content {
-      padding: 32px 0 0 30px;
+      padding: 36px 0 0 30px;
       .title {
         margin-top: 0;
         margin-bottom: 13px;
-        font-size: 24px;
-        line-height: 33px;
+        font-size: 20px;
+        line-height: 24px;
         font-weight: 500;
         color:rgba(64, 64, 64, 1);
       }
@@ -68,9 +68,9 @@ export default {
         position: absolute;
         bottom: 30px;
         font-size: 12px;
-        line-height: 17px;
+        line-height: 12px;
         font-weight: 400;
-        color: rgba(128, 124, 124, 1)
+        color: #a3a3a3;
       }
     }
   }

@@ -21,6 +21,8 @@ export default {
 </script>
 <style lang='less'>
   footer {
+    width: 1160px;
+    margin: 0 auto;
     height: 96px;
     line-height: 96px;
     color: rgba(158, 158, 158, 1);
@@ -29,7 +31,6 @@ export default {
     font-weight: 400;
     .share {
       float: right;
-      
     }
   }
 </style> 

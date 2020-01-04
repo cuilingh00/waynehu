@@ -4,6 +4,7 @@ import MainPage from '@/components/mainPage';
 import About from '@/components/aboutPage';
 import blog from '@/components/blogPage';
 import work from '@/components/workPage';
+import contact from '@/components/contactPage';
 
 Vue.use(Router);
 
@@ -27,8 +28,8 @@ export default new Router({
       component: work,
     }, {
       path: '/contact',
-      name: 'about',
-      component: About,
+      name: 'contact',
+      component: contact,
     }
   ],
 });

@@ -54,6 +54,20 @@ module.exports = {
     'space-before-blocks': 0,
     'key-spacing':0,
     'arrow-spacing':0,
-    'arrow-body-style':0
+    'arrow-body-style':0,
+    'max-len': [
+      'error',
+      {
+        'code': 300,
+      }
+    ],
+    // 'no-console': 'warn',
+    // "no-restricted-syntax": [
+    //   "error",
+    //   {
+    //     "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+    //     "message": "Unexpected property on console object was called"
+    //   }
+    // ]
   }
 }

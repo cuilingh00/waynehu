@@ -19,7 +19,7 @@ export const theme1 = {
   title: 'Vina 多肉小程序',
   description: '一个专注多肉植物细分门类的垂直电商内容小程序。',
   label: 'WORK · 2019年 12月 31日',
-  image: '',
+  image: 'http://q39c5uv3w.bkt.clouddn.com/%E7%94%BB%E5%9B%BE.001.jpeg',
   url: '',
 };
 // 重要示例（中等卡片）

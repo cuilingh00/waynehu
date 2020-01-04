@@ -38,7 +38,10 @@ export default {
       theme2, 
       feature1, 
       work1,
-      feature2, BLOG1, BLOG2, work2,
+      feature2, 
+      BLOG1, 
+      BLOG2, 
+      work2,
     };
   },
 };

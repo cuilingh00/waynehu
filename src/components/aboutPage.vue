@@ -2,7 +2,6 @@
   <div class="main">
     <nav-header title="Blog" description="Keep childish, keep curious" />
     <div class="content">
-      
       lll
     </div>
     <my-footer />
@@ -12,7 +11,7 @@
 <script>
 import NavHeader from './header';
 import MyFooter from './footer';
-// import { } from '../constant/index';
+import { navList } from '../constant/index';
 
 export default {
   name: 'mainPage',

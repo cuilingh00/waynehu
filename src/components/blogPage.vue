@@ -3,7 +3,7 @@
     <nav-header title="Blog" description="Keep childish, keep curious" />
     <div class="content">
       <medium-card :data="feature1"></medium-card>
-      <small-card v-for="blog in BLOG1.concat(BLOG2).concat(BLOG3)" :key="blog.title" :data="blog" />
+      <small-card v-for="blog in BLOG1.concat(BLOG2)" :key="blog.title" :data="blog" />
     </div>
     <my-footer />
   </div>
@@ -15,7 +15,7 @@ import MediumCard from './mediumCard';
 import SmallCard from './smallCard';
 import NavHeader from './header';
 import MyFooter from './footer';
-import { navList, theme1, theme2, feature1, feature2, BLOG1, BLOG2, BLOG3 } from '../constant/index';
+import { navList, theme1, theme2, feature1, feature2, BLOG1, BLOG2 } from '../constant/index';
 
 export default {
   name: 'mainPage',
@@ -30,9 +30,11 @@ export default {
     return {
       navList,
       theme1,
-      theme2, 
-      feature1, 
-      feature2, BLOG1, BLOG2, BLOG3, 
+      theme2,
+      feature1,
+      feature2,
+      BLOG1,
+      BLOG2,
     };
   },
 };

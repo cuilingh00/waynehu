@@ -34,7 +34,7 @@ export default {
       navList,
       theme1,
       theme2,
-      feature1, 
+      feature1,
       feature2,
       work1,
       work2,

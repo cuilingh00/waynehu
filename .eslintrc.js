@@ -55,6 +55,9 @@ module.exports = {
     'key-spacing':0,
     'arrow-spacing':0,
     'arrow-body-style':0,
+    'array-callback-return':0,
+    'object-curly-spacing ': 0,
+    "quotes": [0, "single"],
     'max-len': [
       'error',
       {

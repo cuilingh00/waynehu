@@ -1,9 +1,9 @@
 <template>
   <div class="main">
-    <nav-header title="Blog" description="Keep childish, keep curious" />
+    <nav-header title="Blog" description="Keep childish, keep curious" :titleList="titleList" />
     <div class="introduce">
       <div class="introduce-box">
-      
+        <i class="iconfont iconicon-test"></i>
         <div class="introduce-content">
           90年出生的我，2014年从安庆师范大学艺术设计专业毕业后，一直从事于UI/UX方面的工作。之所以会选择做UI/UX设计师，是因为一直喜爱设计，同时对于科技互联网也是十分的着迷，每次有新的产品发布或是新的技术出现都会迫不及待的去体验，UI/UX恰好满足了我这两点爱好。
         </div>
@@ -22,9 +22,10 @@
         <div class="introduce-content">
           希望自己可以一直爱设计，学设计，做设计。
         </div>
+        <i class="iconfont iconjiewei"></i>
       </div>
     </div>
-    <my-footer />
+    <my-footer class="introduce-footer" />
   </div>
 </template>
 
@@ -42,6 +43,19 @@ export default {
   data() {
     return {
       navList,
+      titleList: [
+        'UM',
+        'UMA',
+        'COA',
+        'BUOU',
+        'AGIR',
+        'AORGT O',
+        'UMAGN Y',
+        'YOGTW RE',
+        'JOGMQ OU',
+        'ABYUT MO',
+        'ABOUT ME'
+      ]
     };
   },
 };
@@ -57,6 +71,16 @@ export default {
       margin: 0 auto;
       padding: 40px 0 60px;
     }
+    .iconicon-test, .iconjiewei {
+      color:#DEDEDE;
+      display: block;
+    }
+    .iconicon-test {
+      margin-bottom: 40px;
+    }
+    .iconjiewei {
+      margin-top: 40px;
+    }
     &-content {
       font-size:14px;
       font-family:PingFang SC;
@@ -66,6 +90,9 @@ export default {
       & + & {
         margin-top: 28px;
       }
+    }
+    &-footer {
+      background: #fff;
     }
   }
 </style>

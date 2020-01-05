@@ -1,6 +1,10 @@
 <template>
   <div class="main">
-    <nav-header title="Contact" description="Waynehuliang@gmail.com" otherContent="Live in Hangzhou" />
+    <nav-header title="Contact" 
+      description="Waynehuliang@gmail.com" 
+      otherContent="Live in Hangzhou"
+      :titleList="titleList"
+    />
     <div class="contact">
       <my-footer />
     </div>
@@ -21,6 +25,19 @@ export default {
   data() {
     return {
       navList,
+      titleList: [
+        'AM',
+        'AMC',
+        'COA',
+        'BUOU',
+        'AGIR',
+        'AORGTO',
+        'UMAGNY',
+        'YOGTWRE',
+        'JOGMQOU',
+        'CENTOCT',
+        'CONTACT',
+      ]
     };
   },
 };

@@ -15,9 +15,9 @@
       </ul>
     </nav>
     <div class="title">
-      <p>{{title}}</p>
-      <p class="title-sub">{{description}}</p>
-      <p class="title-sub">{{otherContent}}</p>
+      <p>{{title1}}</p>
+      <p :class="{'title-sub':true, 'title-move':show }">{{description}}</p>
+      <p :class="{'title-sub':true, 'title-move':show }">{{otherContent}}</p>
       <img src="http://q3km8khyp.bkt.clouddn.com/%E5%8D%8A%E8%BA%AB%E5%83%8F.png" v-if="showProfile" />
     </div>
   </div>
@@ -33,6 +33,23 @@ export default {
       type: String,
       default: 'Hi，I’m Wayne Hu '
     },
+    titleList: {
+      type: Array,
+      default:()=>{
+        return [
+          'ALBER',
+          'EINST',
+          'EINBO',
+          'DYLANM',
+          'ARTINLU',
+          'THERKINGJR',
+          'NO, N’R BUCKM IN',
+          'ST, E’R FULLER TH',
+          'OM, A’S EDISO NM',
+          'HI, I’M WAYNE HU'
+        ]
+      }
+    },
     description: {
       type: String,
       default: 'UI/UX Designer'
@@ -45,7 +62,21 @@ export default {
   data(){
     return {
       navList,
+      title1: this.title,
+      show: false
     }
+  },
+  mounted() {
+    this.titleList.map((item, index)=>{
+      setTimeout(()=>{
+        this.title1 = item
+      }, 100 * index)
+    });
+    this.$nextTick(()=>{
+      setTimeout(()=>{
+        this.show = true;
+      }, 500)
+    })
   },
   computed: {
     showProfile(){
@@ -60,6 +91,17 @@ export default {
 }
 </script>
 <style lang='less'>
+  @keyframes myfade {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   .header {
     width: 1160px;
     margin: 0 auto;
@@ -138,6 +180,13 @@ export default {
         color: #807c7c;
         font-size:32px;
         font-weight: 200;
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      .title-move {
+        transform: translateY(0px);
+        transition-duration: 1s;
+        opacity: 1;
       }
       img {
         position: absolute;
@@ -145,6 +194,9 @@ export default {
         right: 120px;
         width: 240px;
         height: 267px;
+        -webkit-animation: myfade 2s ease;
+        -moz-animation: myfade 2s ease;
+        animation: myfade 2s ease;
       }
     }
   }

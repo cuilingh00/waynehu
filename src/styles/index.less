@@ -7,4 +7,28 @@
 .content {
   width: 1160px;
   margin: 0 auto;
+  .small-cards {
+    .blog {
+      margin-right: 40px;
+      &:nth-child(3n) {
+        margin-right: 0px;
+      }
+    }
+  }
+  .shap-card {
+    transform-origin: 50% 100%;
+    opacity: 0;
+    transform: rotateX(-10deg) translateZ(30px);
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1),opacity 1s cubic-bezier(0.19, 1, 0.22, 1),-webkit-transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    &:nth-child(2n){
+      transition-delay: 0.4s;
+    }
+  }
+  .normal-card {
+    opacity: 1;
+    transform: rotateX(0deg) translateZ(0px);
+  }
+}
+.perspective {
+  perspective: 750px;
 }

@@ -1,7 +1,7 @@
 <template>
   <a ref="card" class="theme shap-card" :class="{'normal-card': show}" @mouseover="cardHover" @mouseleave="cardLeave" :href="data.url" target="_blank">
     <div class="theme-text">
-      <img :src="data.logo" />
+      <img :src="data.logo" class="card__logo" />
       <div class="title">{{data.title}}</div>
       <div class="description">{{data.description}}</div>
       <div class="label" v-show="!hover">{{data.label}}</div>
@@ -11,9 +11,9 @@
       </div>
     </div>
     <div class="theme-image">
-      <div class="image-wrapper">
-        <img :src="data.image" />
-        <img src="http://q3km8khyp.bkt.clouddn.com/%E5%9C%86%E5%BD%A2%E6%97%8B%E8%BD%AC.png" v-if="showFigure" class="figure" />
+      <div class="image-wrapper card__img">
+        <img :src="data.image" class="card__img" />
+        <img src="http://waynehu.art//%E5%9C%86%E5%BD%A2%E6%97%8B%E8%BD%AC.png" v-if="showFigure" class="figure" />
         <div v-if="showFigure" class="circle">
           <div class="big-circle" />
           <div class="small-circle" />
@@ -90,7 +90,7 @@ export default {
   .theme {
     height: 450px;
     width: 100%;
-    background: #fff;
+    background: var(--sub-bg-color);
     display: inline-block;
     margin-bottom: 40px;
     font-size: 0;
@@ -120,9 +120,9 @@ export default {
         font-size: 20px;
         line-height: 24px;
         font-weight: 500;
-        color:rgba(64, 64, 64, 1);
+        color: var(--primary-color);
         display: inline-block;
-        background-image: linear-gradient(0deg, #FFF7CD 12px, #fff 0px);
+        background-image: linear-gradient(0deg, var(--title-gradient-up) 12px, var(--title-gradient-down) 0px);
         background-repeat: no-repeat;
         background-position: -410px 0px;
         transition-duration: 0.6s;
@@ -131,7 +131,7 @@ export default {
         font-size: 14px;
         line-height: 20px;
         font-weight: 400;
-        color: rgba(128, 124, 124, 1)
+        color: var(--minor-color);
       }
       .label {
         position: absolute;
@@ -139,7 +139,7 @@ export default {
         font-size: 12px;
         line-height: 17px;
         font-weight: 400;
-        color: #a3a3a3;
+        color: var(--label-color);
         width: 360px;
         .iconyoujiantou1 {
           display: inline-block;
@@ -213,6 +213,17 @@ export default {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+        }
+        @media screen and (max-width: 414px) {
+          .figure {
+            width: 24px;
+            height: 24px;
+          }
+          .circle {
+            position: absolute;
+            top: 35%;
+            left: 9%;
+          }
         }
       }
     }

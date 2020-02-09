@@ -14,7 +14,7 @@
 <script>
 import NavHeader from './header';
 import MyFooter from './footer';
-import { navList } from '../constant/index';
+import {navList} from '../constant/index';
 
 export default {
   name: 'mainPage',
@@ -44,11 +44,17 @@ export default {
 </script>
 
 <style lang='less'>
-@import "../styles/index.less";
-@import "../styles/global.less";
-.contact {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-}
+  @import "../styles/index.less";
+  @import "../styles/global.less";
+  .contact {
+    position: fixed;
+    bottom: 0px;
+    width:100%;
+  }
+  @media screen and (max-width: 414px) {
+    .contact {
+      position: relative;
+      bottom: -40vh;
+    }
+  }
 </style>

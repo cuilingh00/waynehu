@@ -32,7 +32,7 @@
 <script>
 import NavHeader from './header';
 import MyFooter from './footer';
-import { navList } from '../constant/index';
+import {navList} from '../constant/index';
 
 export default {
   name: 'mainPage',
@@ -64,8 +64,11 @@ export default {
 <style lang='less'>
 @import "../styles/index.less";
 @import "../styles/global.less";
+  body {
+    background-color: var(--about-bg-color);
+  }
   .introduce {
-    background: #fff;
+    background: var(--introduce-bg-color);
     .introduce-box {
       width: 620px;
       margin: 0 auto;
@@ -85,14 +88,27 @@ export default {
       font-size:14px;
       font-family:PingFang SC;
       font-weight:400;
-      color:rgba(124,112,112,1);
+      color: var(--introduce-color);
       line-height:28px;
       & + & {
         margin-top: 28px;
       }
     }
     &-footer {
-      background: #fff;
+      background: var(--introduce-bg-color);
+    }
+  }
+  @media screen and (max-width: 414px) {
+    .introduce {
+      margin: 0 -20px;
+      .introduce-box {
+        width: 100%;
+        padding: 20px 40px;
+        margin: 0 0 40px;
+      }
+      &-footer {
+        background: #fafafa;
+      }
     }
   }
 </style>

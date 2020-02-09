@@ -18,7 +18,7 @@ import MediumCard from './mediumCard';
 import SmallCard from './smallCard';
 import NavHeader from './header';
 import MyFooter from './footer';
-import { navList, theme1, theme2, feature1, feature2, blog1, mixed1 } from '../constant/index';
+import {navList, theme1, theme2, feature1, feature2, blog1, mixed1} from '../constant/index';
 
 export default {
   name: 'mainPage',
@@ -54,7 +54,7 @@ export default {
   },
   computed:{
     restBlog(){
-      return this.mixed1.filter(item=>{
+      return this.mixed1.filter((item)=>{
         return item.tag === 'blog';
       })
     }

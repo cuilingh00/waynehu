@@ -1,10 +1,10 @@
 <template>
   <div class="header">
-    <nav class="clearfix">
+    <nav class="nav clearfix">
       <a href="/">
         <img src="../assets/photo.png" />
       </a>
-      <ul>
+      <ul class="nav__menus">
         <li v-for="nav in navList" :key="nav.name">
           <a :href="nav.url" :class="{'active': getNav(nav.name)}">
             <span class='dot dot-left'>·</span>
@@ -14,17 +14,17 @@
         </li>
       </ul>
     </nav>
-    <div class="title">
+    <div class="title" :class="{'title-ablout': showProfile}">
       <p>{{title1}}</p>
       <p :class="{'title-sub':true, 'title-move':show }">{{description}}</p>
       <p :class="{'title-sub':true, 'title-move':show }">{{otherContent}}</p>
-      <img src="http://q3km8khyp.bkt.clouddn.com/%E5%8D%8A%E8%BA%AB%E5%83%8F.png" v-if="showProfile" />
+      <img src="http://waynehu.art//%E5%8D%8A%E8%BA%AB%E5%83%8F.png" v-if="showProfile" />
     </div>
   </div>
 </template>
 
 <script>
-import { navList } from '../constant';
+import {navList} from '../constant';
 
 export default {
   name: 'NavHeader',
@@ -103,28 +103,27 @@ export default {
     }
   }
   .header {
-    width: 1160px;
-    margin: 0 auto;
-    nav {
+    margin: 30px auto 0;
+    .nav {
       height: 42px;
       line-height: 42px;
       img {
         width: 42px;
         height: 42px;
       }
-      ul {
+      &__menus {
         float: right;
         li {
           display: inline-block;
           margin-left: 40px;
           position: relative;
           .nav-name {
-            color: #807c7c;
+            color: var(--nav-name-color);
           }
           .dot {
             display: inline-block;
             position: absolute;
-            color: #fff;
+            color: var(--dot-color);
           }
           .dot-left {
             left: -25px;
@@ -133,11 +132,8 @@ export default {
             right: -25px;
           }
           &:hover {
-            .nav-name {
-              color: #404040;
-            }
-            .dot {
-              color: #404040;
+            .nav-name, .dot {
+              color: var(--dot-active-color);
             }
             .dot-left {
               transform: translateX(15px);
@@ -150,11 +146,8 @@ export default {
           }
         }
         .active {
-          .nav-name {
-            color: #404040;
-          }
-          .dot {
-            color: #404040;
+          .nav-name, .dot {
+            color: var(--dot-active-color);
           }
           .dot-left {
             transform: translateX(15px);
@@ -172,12 +165,12 @@ export default {
       padding: 108px 0 108px 0;
       position: relative;
       p {
-        color: #404040;
+        color: var(--primary-color);
         font-weight: 500;
         font-size: 36px;
       }
       .title-sub {
-        color: #807c7c;
+        color: var(--header-sub-title-color);
         font-size:32px;
         font-weight: 200;
         transform: translateY(20px);
@@ -197,6 +190,32 @@ export default {
         -webkit-animation: myfade 2s ease;
         -moz-animation: myfade 2s ease;
         animation: myfade 2s ease;
+      }
+    }
+
+  }
+  @media screen and (max-width: 414px) {
+    .header {
+      .nav__menus {
+        display: none;
+      }
+      .title {
+        padding:50px 0;
+        line-height: 36px;
+        text-align: center;
+        .title-sub, p {
+          font-size: 20px;
+          text-align: left;
+        }
+        img {
+          position: relative;
+          right:auto;
+          bottom: -85px;
+        }
+      }
+      .title-ablout {
+        padding: 50px 0 0 0;
+        height: 476px;
       }
     }
   }

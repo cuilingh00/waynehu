@@ -1,13 +1,13 @@
 <template>
   <a ref="card" class="feature shap-card" :class="{'normal-card': show}" @mouseover="cardHover" @mouseleave="cardLeave" :href="data.url" target="_blank">
     <div class="feature-image">
-      <div class="image-wrapper">
-        <img :src="data.image" />
-        <img src="http://q3km8khyp.bkt.clouddn.com/%E9%A3%8E%E8%BD%A6.png" v-if="data.styles ? data.styles.tag === 'penguin' : false" class="penguin" />
+      <div class="image-wrapper tall__img" :class="{'penguin-back': hasPenguin}" >
+        <img :src="data.image" class="tall__img" />
+        <img src="http://waynehu.art//%E9%A3%8E%E8%BD%A6.png" v-if="hasPenguin" class="penguin" />
       </div>
     </div>
     <div class="feature-text">
-      <img :src="data.logo" />
+      <img :src="data.logo" class="card__logo" />
       <div class="title">{{data.title}}</div>
       <div class="description">{{data.description}}</div>
       <div class="label" v-show="!hover">{{data.label}}</div>
@@ -56,6 +56,11 @@ export default {
     },
     cardLeave(){
       this.hover = false;
+    },
+  },
+  computed: {
+    hasPenguin(){
+      return this.data.styles && this.data.styles.tag === 'penguin';
     }
   }
 }
@@ -69,7 +74,7 @@ export default {
   .feature {
     height: 450px;
     width: 760px;
-    background: #fff;
+    background: var(--sub-bg-color);
     display: inline-block;
     margin-bottom: 40px;
     margin-right: 35px;
@@ -101,9 +106,9 @@ export default {
         font-size: 20px;
         line-height: 24px;
         font-weight: 500;
-        color:rgba(64, 64, 64, 1);
+        color:var(--primary-color);
         display: inline-block;
-        background-image: linear-gradient(0deg, #FFF7CD 12px, #fff 0px);
+        background-image: linear-gradient(0deg, var(--title-gradient-up) 12px, var(--title-gradient-down) 0px);
         background-repeat: no-repeat;
         background-position: -350px 0px;
       }
@@ -111,7 +116,7 @@ export default {
         font-size: 14px;
         line-height: 20px;
         font-weight: 400;
-        color: rgba(128, 124, 124, 1)
+        color: var(--minor-color);
       }
       .label {
         position: absolute;
@@ -119,7 +124,7 @@ export default {
         font-size: 12px;
         line-height: 17px;
         font-weight: 400;
-        color: #a3a3a3;
+        color: var(--label-color);
         width: 300px;
         .iconyoujiantou1 {
           display: inline-block;
@@ -166,6 +171,9 @@ export default {
         }
       }
     }
+    .penguin-back {
+      background-color: #fee681;
+    }
     .penguin {
       width: 60px;
       height: 60px;
@@ -173,6 +181,14 @@ export default {
       left: 42%;
       top: 43.5%;
       animation: myPenguin 5s infinite linear;
+    }
+    @media screen and (max-width: 414px) {
+      .penguin {
+        width: 30px;
+        height: 30px;
+        left: 45.5%;
+        top: 43.5%;
+      }
     }
   }
 </style>

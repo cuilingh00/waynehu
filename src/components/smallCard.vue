@@ -1,8 +1,8 @@
 <template>
   <a :href="data.url" target="_blank" ref="card" class="blog shap-card" :class="{'normal-card': show}" @mouseover="cardHover" @mouseleave="cardLeave">
     <div class="blog-image" :style="{'background': backgroundColor}">
-      <img :src="data.image" :class="moveClass" />
-      <img src="http://q3km8khyp.bkt.clouddn.com/%E4%BA%91%E6%9C%B5.png" class="cloud" v-if="data.styles ? data.styles.tag === 'cloud' : false" />
+      <img :src="data.image" :class="moveClass" class="card__img" />
+      <img src="http://waynehu.art//%E4%BA%91%E6%9C%B5.png" class="cloud" v-if="data.styles ? data.styles.tag === 'cloud' : false" />
     </div>
     <div class="blog-content">
       <div class="title">{{data.title}}</div>
@@ -49,7 +49,10 @@ export default {
     },
     moveClass(){
       const flag = this.data.styles ? this.data.styles.move : false;
-      return flag ? this.data.styles.orient === 'right' ? 'bg-move-right' : 'bg-move-left' : ''
+      if (flag) {
+        return this.data.styles.orient === 'right' ? 'bg-move-right special' : 'bg-move-left special'
+      }
+      return '';
     },
   },
   methods: {
@@ -70,14 +73,14 @@ export default {
 </script>
 <style lang='less'>
   @keyframes moveLeft {
-    0%   {top:0px; left:0px}
-    50%  {top:-100px; left:0px}
-    100% {top:0px; left:0px}
+    0%   {transform:matrix(2, 0, 0, 2, 0, 0);}
+    50%  {transform:matrix(2, 0, 0, 2, 0, 100);}
+    100% {transform:matrix(2, 0, 0, 2, 0, 0);}
   }
   @keyframes moveRight {
-    0%   {top:0px; right:0px}
-    50%  {top:100px; right:0px}
-    100% {top:0px; right:0px}
+    0%   {transform:matrix(2, 0, 0, 2, 0, 0);}
+    50%  {transform:matrix(2, 0, 0, 2, 0, -100);}
+    100% {transform:matrix(2, 0, 0, 2, 0, 0);}
   }
   @keyframes myCloud {
     0% {
@@ -94,7 +97,7 @@ export default {
   .blog {
     height: 450px;
     width: 360px;
-    background: #fff;
+    background: var(--sub-bg-color);
     display: inline-block;
     margin-bottom: 40px;
     font-size: 0;
@@ -129,18 +132,16 @@ export default {
         animation: myCloud 4s infinite ease;
       }
       .bg-move-left {
-        transform: scale(2);
-        animation: moveLeft 15s infinite linear;
-        -moz-animation:moveLeft 15s infinite linear; /* Firefox */
-        -webkit-animation:moveLeft 15s infinite linear; /* Safari and Chrome */
-        -o-animation:moveLeft 15s infinite linear; /* Opera */
+        animation: moveLeft 20s infinite linear;
+        -moz-animation:moveLeft 20s infinite linear; /* Firefox */
+        -webkit-animation:moveLeft 20s infinite linear; /* Safari and Chrome */
+        -o-animation:moveLeft 20s infinite linear; /* Opera */
       }
       .bg-move-right {
-        transform: scale(2);
-        animation: moveRight 15s infinite linear;
-        -moz-animation:moveRight 15s infinite linear; /* Firefox */
-        -webkit-animation:moveRight 15s infinite linear; /* Safari and Chrome */
-        -o-animation:moveRight 15s infinite linear; /* Opera */
+        animation: moveRight 20s infinite linear;
+        -moz-animation:moveRight 20s infinite linear; /* Firefox */
+        -webkit-animation:moveRight 20s infinite linear; /* Safari and Chrome */
+        -o-animation:moveRight 20s infinite linear; /* Opera */
       }
     }
     &-content {
@@ -151,9 +152,9 @@ export default {
         font-size: 20px;
         line-height: 24px;
         font-weight: 500;
-        color:rgba(64, 64, 64, 1);
+        color:var(--primary-color);
         display: inline-block;
-        background-image: linear-gradient(0deg, #FFF7CD 12px, #fff 0px);
+        background-image: linear-gradient(0deg,var(--title-gradient-up) 12px, var(--title-gradient-down) 0px);
         background-repeat: no-repeat;
         background-position: -330px 0px;
       }
@@ -161,7 +162,7 @@ export default {
         font-size: 14px;
         line-height: 20px;
         font-weight: 400;
-        color: rgba(128, 124, 124, 1)
+        color: var(--minor-color);
       }
       .label {
         position: absolute;
@@ -169,7 +170,7 @@ export default {
         font-size: 12px;
         line-height: 17px;
         font-weight: 400;
-        color: #a3a3a3;
+        color: var(--label-color);
         width: 300px;
         .iconyoujiantou1 {
           display: inline-block;

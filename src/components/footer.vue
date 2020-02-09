@@ -43,7 +43,7 @@ export default {
     height: 96px;
     line-height: 96px;
     color: rgba(158, 158, 158, 1);
-    border-top: 1px solid #EFEFEF;
+    border-top: 1px solid var(--footer-border-color);
     font-family:PingFangSC-Regular,PingFang SC;
     font-weight: 400;
     .share {

@@ -55,9 +55,12 @@ module.exports = {
     'key-spacing':0,
     'arrow-spacing':0,
     'arrow-body-style':0,
+    "no-nested-ternary": "error",
+    'object-curly-spacing': ['error', 'never'],
     'array-callback-return':0,
-    'object-curly-spacing ': 0,
     "quotes": [0, "single"],
+    "array-bracket-spacing": ["error", "never"],
+    "arrow-parens": ["warn", "as-needed", { "requireForBlockBody": true }],
     'max-len': [
       'error',
       {

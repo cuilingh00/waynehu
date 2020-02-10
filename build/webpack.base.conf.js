@@ -77,7 +77,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader{modifyVars:{},javascriptEnabled: true}",
+        loader: "style-loader!css-loader!less-loader",
       }
     ]
   },

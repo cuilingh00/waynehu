@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <nav-header title="Contact" 
-      description="Waynehuliang@gmail.com" 
+      description="waynehl@foxmail.com" 
       otherContent="Live in Hangzhou"
       :titleList="titleList"
     />

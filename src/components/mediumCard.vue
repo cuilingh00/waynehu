@@ -165,6 +165,7 @@ export default {
         height: 450px;
         width: 360px;
         position: relative;
+        background: #fff;
         img {
           max-height: 450px;
           max-width: 360px;
@@ -173,6 +174,10 @@ export default {
     }
     .penguin-back {
       background-color: #fee681;
+      overflow: hidden;
+      .tall__img {
+        transform: scale(1.5) translateY(10px);
+      }
     }
     .penguin {
       width: 60px;
@@ -187,7 +192,7 @@ export default {
         width: 30px;
         height: 30px;
         left: 45.5%;
-        top: 43.5%;
+        top: 47.5%;
       }
     }
   }

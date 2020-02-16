@@ -2,7 +2,7 @@
 
 @media screen and (min-width: 415px) {
   .main {
-    .header, .content {
+    .header, .content, .nav {
       width: 1160px;
     }
     .small-cards {
@@ -18,7 +18,10 @@
 @media screen and (max-width: 414px) {
   .main {
     width: 375px;
-    padding: 20px;
+    padding: 0 20px 20px;
+    .nav {
+      width: 335px;
+    }
     .feature, .blog {
       width:100%;
     }
@@ -68,6 +71,9 @@
       }
     }
   }
+  .theme-switch {
+    display: none;
+  }
 }
 
 .main {
@@ -75,6 +81,10 @@
   margin: 0 auto;
   z-index:200;
   font-family: PingFang SC;
+}
+.main-fold {
+  max-height: 100vh;
+  overflow: hidden;
 }
 .content {
   margin: 0 auto;

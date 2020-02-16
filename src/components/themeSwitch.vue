@@ -31,11 +31,13 @@ export default {
     handleThemeUpdate(theme) {
       switch (theme) {
         case 'dark': 
+          document.body.querySelector('.header-nav').setAttribute('class', 'header-nav header-nav-bg');
           document.body.querySelector('.circle-bg').setAttribute('class', 'circle-bg dark-circle');
           this.handleSetProperty(dark);
           this.timer = setTimeout(() => {
             this.root.style.setProperty('--bg-color', '#000');
             document.body.querySelector('.circle-bg').setAttribute('class', 'circle-bg');
+            document.body.querySelector('.header-nav').setAttribute('class', 'header-nav');
           }, 1000);
           break
         case 'light':
@@ -90,6 +92,7 @@ export default {
   right:45px;
   top:0px;
   text-align: center;
+  z-index: 400;
   &__line {
     width:1px;
     height:80px;

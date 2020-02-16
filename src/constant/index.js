@@ -87,9 +87,9 @@ export const work1 = [{
 // 主题分类
 export const theme2 = {
   logo:'http://waynehu.art/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83_logo.png',
-  title: '政采云设计规范',
+  title: '政采云设计体系',
   styles: {tag: 'figure'},
-  description: '制定，推动，维护平台设计规范',
+  description: '创建，推动，维护平台设计体系',
   label: 'WORK · 2019年 09月 16日',
   image: 'http://waynehu.art/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83_%E9%85%8D%E5%9B%BE.png',
   url: 'https://www.yuque.com/waynehu/work/04',
@@ -160,5 +160,5 @@ export const mixed1 = [{
   description: '不要把简单的需求，复杂化',
   label: 'BLOG · 2018年 01月 02日',
   image: 'http://waynehu.art/blog_01.jpg',
-  url: 'https://www.yuque.com/waynehu/blog/02',
+  url: 'https://www.yuque.com/waynehu/blog/01',
 }]

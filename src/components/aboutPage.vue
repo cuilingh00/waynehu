@@ -25,6 +25,8 @@
         <i class="iconfont iconjiewei"></i>
       </div>
     </div>
+    <div @click="downLoadResume">下载</div>
+    <a href="http://waynehu.art/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83_%E9%85%8D%E5%9B%BE.png" download="test.png">点击下载</a>
     <my-footer class="introduce-footer" />
   </div>
 </template>
@@ -58,15 +60,21 @@ export default {
       ]
     };
   },
+  methods: {
+    downLoadResume(){
+      const resume = 'http://waynehu.art/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83_%E9%85%8D%E5%9B%BE.png';
+      const elemIF = document.createElement("iframe");
+      elemIF.src = resume;
+      elemIF.style.display = "none";
+      document.body.appendChild(elemIF);
+    }
+  }
 };
 </script>
 
 <style lang='less'>
 @import "../styles/index.less";
 @import "../styles/global.less";
-  body {
-    background-color: var(--about-bg-color);
-  }
   .introduce {
     background: var(--introduce-bg-color);
     .introduce-box {

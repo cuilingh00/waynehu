@@ -1,33 +1,59 @@
 <template>
   <div class="header">
-    <nav class="nav clearfix">
-      <a href="/">
-        <img src="../assets/photo.png" />
-      </a>
-      <ul class="nav__menus">
-        <li v-for="nav in navList" :key="nav.name">
-          <a :href="nav.url" :class="{'active': getNav(nav.name)}">
-            <span class='dot dot-left'>·</span>
-            <span class='nav-name'>{{nav.name}}</span>
-            <span class='dot dot-right'>·</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div class="title" :class="{'title-ablout': showProfile}">
+    <div class="header-nav">
+      <nav class="nav clearfix">
+        <a href="/#/work">
+          <img src="../assets/photo.png" />
+        </a>
+        <ul class="nav__menus">
+          <li v-for="nav in navList" :key="nav.name">
+            <a :href="nav.url" :class="{'active': getNav(nav.name)}">
+              <span class='dot dot-left'>·</span>
+              <span class='nav-name'>{{nav.name}}</span>
+              <span class='dot dot-right'>·</span>
+            </a>
+          </li>
+        </ul>
+        <div class="app-crumbs" @click="handleChangeCrumbs">
+          <span :class="{'app-crumbs-box':true, 'app-crumbs-top':navSwitch }">
+            <span :class="{'app-crumbs-line':true, 'app-crumbs-line-top':!navSwitch }" ></span>
+          </span>
+          <span :class="{'app-crumbs-box':true, 'app-crumbs-bottom':navSwitch}">
+            <span :class="{'app-crumbs-line':true, 'app-crumbs-line-bottom':!navSwitch}" />
+          </span>
+        </div>
+      </nav>
+    </div>
+    <div class="title" :class="{'title-about': showProfile}">
       <p>{{title1}}</p>
       <p :class="{'title-sub':true, 'title-move':show }">{{description}}</p>
       <p :class="{'title-sub':true, 'title-move':show }">{{otherContent}}</p>
       <img src="http://waynehu.art//%E5%8D%8A%E8%BA%AB%E5%83%8F.png" v-if="showProfile" />
+    </div>
+    <div class="nav-app" :style="{'height': navSwitch ? 'calc(100vh - 120px)':'0px' }">
+      <ul>
+        <li v-for="nav in navList" :key="nav.name">
+          <a :href="nav.url" :class="{'active': getNav(nav.name)}">{{nav.name}}</a>
+        </li>
+        <li class="nav-app-li">
+          <div class="nav-app__theme">
+            <themeSwitchApp @handleChangeTheme="handleChangeTheme"></themeSwitchApp>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
 import {navList} from '../constant';
+import themeSwitchApp from './themeSwitchApp';
 
 export default {
   name: 'NavHeader',
+  components: {
+    themeSwitchApp
+  },
   props: {
     title: {
       type: String,
@@ -63,7 +89,9 @@ export default {
     return {
       navList,
       title1: this.title,
-      show: false
+      show: false,
+      navSwitch: false,
+      navFixed: false,
     }
   },
   mounted() {
@@ -76,7 +104,8 @@ export default {
       setTimeout(()=>{
         this.show = true;
       }, 500)
-    })
+    });
+    window.addEventListener("scroll", this.scroll);
   },
   computed: {
     showProfile(){
@@ -85,7 +114,27 @@ export default {
   },
   methods:{
     getNav(name){
-      return location.hash.substring(2).toUpperCase() === name;
+      const hashName = location.hash.substring(2).toUpperCase();
+      if (name === 'WORK') {
+        return hashName === name || hashName === '';
+      }
+      return hashName === name;
+    },
+    handleChangeCrumbs(){
+      this.navSwitch = !this.navSwitch;
+      const classNames = this.navSwitch ? "main main-fold" : 'main';
+      document.body.querySelector('.main').setAttribute('class', classNames);
+    },
+    handleChangeTheme(){
+      this.navSwitch = !this.navSwitch;
+      const classNames = this.navSwitch ? "main main-fold" : 'main';
+      document.body.querySelector('.main').setAttribute('class', classNames);
+    },
+    scroll(){
+      const scrollTop = window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      this.navFixed = scrollTop > 92;
     }
   }
 }
@@ -103,10 +152,25 @@ export default {
     }
   }
   .header {
-    margin: 30px auto 0;
-    .nav {
-      height: 42px;
+    margin:0 auto;
+    .header-nav {
+      width:100%;
+      left:0;
+      height: 82px;
       line-height: 42px;
+      position: fixed;
+      background: var(--nav-bg-color);
+      z-index: 300;
+      padding-top: 30px;
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+    .header-nav-bg {
+      background: transparent;
+    }
+    .nav {
+      height: 82px;
+      line-height: 42px;
+      margin: 0 auto;
       img {
         width: 42px;
         height: 42px;
@@ -159,6 +223,51 @@ export default {
           }
         }
       }
+      .app-crumbs {
+        float: right;
+        position: relative;
+        display: none;
+        width: 42px;
+        height: 42px;
+        color:var(--primary-color);
+        &-box {
+          position: absolute;
+          top: 6px;
+          right: 0;
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          text-align: center;
+          transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+        }
+        &-top {
+          transform: rotate(45deg);
+          transition: transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96)
+        } 
+        &-bottom {
+          transform: rotate(-45deg);
+          transition: transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96)
+        }
+        &-line {
+          display: inline-block;
+          width: 20px;
+          height: 1px;
+          border-radius: 0.5px;
+          background:var(--primary-color);
+          bottom: 10px;
+          position: relative;
+          transform: none;
+          transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+          &-top {
+            transform: translateY(-3px);
+            transition:transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s
+          }
+          &-bottom {
+            transform: translateY(3px);
+            transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s
+          }
+        }
+      }
     }
     .title {
       line-height: 56px;
@@ -192,15 +301,60 @@ export default {
         animation: myfade 2s ease;
       }
     }
-
+    .nav-app {
+      width: 100%;
+      height: 0px;
+      position: absolute;
+      top: 120px;
+      left: 0;
+      bottom: 0;
+      background: var(--bg-color);
+      z-index: 200;
+      overflow: hidden;
+      color:var(--primary-color);
+      transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1),height .56s cubic-bezier(0.52, 0.16, 0.24, 1);
+      ul {
+        width: 375px;
+        padding: 20px;
+        margin: 0 auto;
+        li {
+          height: 80px;
+          line-height: 80px;
+          font-size: 24px;
+          font-weight: 300;
+          text-align: center;
+          a {
+            color: var(--primary-color);
+          }
+          .active{
+            color: var(--minor-color);
+          }
+        }
+      }
+      &-li {
+        margin-top:40px;
+      }
+      &__theme {
+        text-align: center;
+        display: inline-block;
+      }
+    }
+    .title-about {
+      padding: 128px 0 108px 0;
+    }
   }
   @media screen and (max-width: 414px) {
     .header {
-      .nav__menus {
-        display: none;
+      .nav {
+        .nav__menus {
+          display: none;
+        }
+        .app-crumbs {
+          display: block;
+        }
       }
       .title {
-        padding:50px 0;
+        padding: 122px 0 50px;
         line-height: 36px;
         text-align: center;
         .title-sub, p {
@@ -210,12 +364,8 @@ export default {
         img {
           position: relative;
           right:auto;
-          bottom: -85px;
+          bottom: -50px;
         }
-      }
-      .title-ablout {
-        padding: 50px 0 0 0;
-        height: 476px;
       }
     }
   }

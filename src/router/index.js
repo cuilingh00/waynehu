@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import MainPage from '@/components/mainPage';
+// import MainPage from '@/components/mainPage';
 import About from '@/components/aboutPage';
 import blog from '@/components/blogPage';
 import work from '@/components/workPage';
@@ -10,11 +10,17 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'main',
+    //   component: MainPage,
+    // },
     {
       path: '/',
-      name: 'main',
-      component: MainPage,
-    }, {
+      name: 'work',
+      component: work,
+    },
+    {
       path: '/about',
       name: 'about',
       component: About,

@@ -7,7 +7,7 @@
         </a>
         <ul class="nav__menus">
           <li v-for="nav in navList" :key="nav.name">
-            <a :href="nav.url" :class="{'active': getNav(nav.name)}">
+            <a :href="nav.url" :class="{'active': getNav(nav.name)}" :target="nav.target">
               <span class='dot dot-left'>·</span>
               <span class='nav-name'>{{nav.name}}</span>
               <span class='dot dot-right'>·</span>
@@ -156,24 +156,23 @@ export default {
     .header-nav {
       width:100%;
       left:0;
-      height: 82px;
-      line-height: 42px;
       position: fixed;
       background: var(--nav-bg-color);
       z-index: 300;
-      padding-top: 30px;
+      padding-top: 10px;
       backdrop-filter: saturate(180%) blur(20px);
     }
     .header-nav-bg {
       background: transparent;
     }
     .nav {
-      height: 82px;
-      line-height: 42px;
+      height: 62px;
+      line-height: 62px;
       margin: 0 auto;
       img {
         width: 42px;
         height: 42px;
+        vertical-align: middle;
       }
       &__menus {
         float: right;
@@ -226,9 +225,11 @@ export default {
       .app-crumbs {
         float: right;
         position: relative;
+        bottom: -10px;
         display: none;
         width: 42px;
         height: 42px;
+        line-height: 42px;
         color:var(--primary-color);
         &-box {
           position: absolute;
@@ -271,7 +272,7 @@ export default {
     }
     .title {
       line-height: 56px;
-      padding: 108px 0 108px 0;
+      padding: 172px 0 100px 0;
       position: relative;
       p {
         color: var(--primary-color);
@@ -340,11 +341,14 @@ export default {
       }
     }
     .title-about {
-      padding: 128px 0 108px 0;
+      padding: 172px 0 100px 0;
     }
   }
   @media screen and (max-width: 414px) {
     .header {
+      .header-nav {
+        padding-top: 0px;
+      }
       .nav {
         .nav__menus {
           display: none;
@@ -354,7 +358,7 @@ export default {
         }
       }
       .title {
-        padding: 122px 0 50px;
+        padding: 112px 0 50px;
         line-height: 36px;
         text-align: center;
         .title-sub, p {
@@ -364,7 +368,7 @@ export default {
         img {
           position: relative;
           right:auto;
-          bottom: -50px;
+          bottom: -63px;
         }
       }
     }

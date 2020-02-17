@@ -25,8 +25,6 @@
         <i class="iconfont iconjiewei"></i>
       </div>
     </div>
-    <div @click="downLoadResume">下载</div>
-    <a href="http://waynehu.art/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83_%E9%85%8D%E5%9B%BE.png" download="test.png">点击下载</a>
     <my-footer class="introduce-footer" />
   </div>
 </template>
@@ -102,9 +100,6 @@ export default {
         margin-top: 28px;
       }
     }
-    &-footer {
-      background: var(--introduce-bg-color);
-    }
   }
   @media screen and (max-width: 414px) {
     .introduce {
@@ -113,9 +108,6 @@ export default {
         width: 100%;
         padding: 20px 40px;
         margin: 0 0 40px;
-      }
-      &-footer {
-        background: #fafafa;
       }
     }
   }

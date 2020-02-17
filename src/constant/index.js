@@ -11,6 +11,10 @@ export const navList = [{
 }, {
   name: 'CONTACT',
   url: '/#/contact',
+}, {
+  name: 'RESUME',
+  target: "_blank",
+  url: 'http://waynehu.art/%E8%83%A1%E4%BA%AE_resume.pdf#view=Fit',
 }];
 
 // 主题分类
@@ -25,7 +29,7 @@ export const theme1 = {
 // 重要示例（中等卡片）
 export const feature1 = {
   styles: {tag: 'penguin'},
-  logo:'http://waynehu.art/%E5%B8%9D%E4%BC%81%E9%B9%85%E5%A4%B4%E5%83%8F.png',
+  logo:'http://waynehu.art/%E6%96%B0%E5%B8%9D%E4%BC%81%E9%B9%85%E5%B2%9B%E5%A4%B4%E5%83%8F.png',
   title: '帝企鹅岛',
   description: '有幸做了别人的师傅，“教别人设计”',
   label: 'BLOG · 2019年 11月 12日',

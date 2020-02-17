@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <nav-header title="Work" description="It's Not a Job, It's a Lifestyle." :titleList="titleList" />
+    <nav-header />
     <div class="content perspective">
       <main-card :data="theme2"></main-card>
       <medium-card :data="feature2"></medium-card>

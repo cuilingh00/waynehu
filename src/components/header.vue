@@ -78,7 +78,7 @@ export default {
     },
     description: {
       type: String,
-      default: 'UI/UX Designer'
+      default: 'UI/UX Product Designer'
     },
     otherContent: {
       type: String,

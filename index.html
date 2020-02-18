@@ -5,40 +5,38 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
     <title>waynehu</title>
     <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1596974_j93n2ds4mj.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1596974_j93n2ds4m2.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1596974_j93n2ds4m1.css">
+
     <script>
-      console.log(new Date().getTime())
-      console.log('111')
-      let timer = setInterval(() => {
+      function changeWord(dom) {
+        var loadList = ['不够大气', 'Logo再大点', '再改改吧', '那个美工, 过来一下', '还是用第一稿吧'];
+        var time = 0;
+        dom && dom.setAttribute('class', 'loading-item loading-row');
+        var timer = setInterval(getText, 1000);
+        function getText() {
+          if (time > loadList.length - 1) {
+            time = 0;
+          }
+          dom && (dom.innerHTML = loadList[time]);
+          time += 1;
+        }
+        setTimeout(function(){
+          clearInterval(timer)
+        }, 30000)
+      }
+      let circle = setInterval(() => {
         let dom = document.body;
         if(dom){
+          clearInterval(circle);
           let item = document.body.querySelector('.loading-item');
-          console.log(new Date().getTime())
-          console.log('---');
-          clearInterval(timer);
+          changeWord(item);
         }
-        console.log('000000')
-      }, 1);
-      document.addEventListener('DOMContentLoaded', function(event) {
-        console.log(new Date().getTime())
-        console.log('----------------')
-        // var loadList = ['不够大气', 'Logo再大点', '再改改吧', '那个美工, 过来一下', '还是用第一稿吧'];
-        // var time = 0;
-        // dom && dom.setAttribute('class', 'loading-item loading-row');
-        // var timer = setInterval(getText, 2050);
-        // function getText() {
-        //   time += 1;
-        //   if (time > loadList.length - 1) {
-        //     time = 0;
-        //   }
-        //   dom && (dom.innerHTML = loadList[time]);
-        // }
-        // setTimeout(function(){
-        //   clearInterval(timer)
-        // }, 30000)
-      });
+      }, 0);
     </script>
     <style>
-      @-webkit-keyframes rowup{0%{-webkit-transform:translate(0);transform:translate(0);opacity:0}20%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:1}80%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:1}to{-webkit-transform:translateY(-40px);transform:translateY(-40px);opacity:0}}@keyframes rowup{0%{-webkit-transform:translate(0);transform:translate(0);opacity:0}20%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:1}80%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:1}to{-webkit-transform:translateY(-40px);transform:translateY(-40px);opacity:0}}@-webkit-keyframes boxmove{0%{-webkit-transform:translate(0);transform:translate(0)}50%{-webkit-transform:translateY(-40px);transform:translateY(-40px)}to{-webkit-transform:translate(0);transform:translate(0)}}@keyframes boxmove{0%{-webkit-transform:translate(0);transform:translate(0)}50%{-webkit-transform:translateY(-40px);transform:translateY(-40px)}to{-webkit-transform:translate(0);transform:translate(0)}}.loading{height:100vh;position:relative;overflow:hidden;margin:0 auto;width:1160px}.loading-box{margin-top:50vh}.loading-row{-webkit-animation:rowup 2s linear infinite;animation:rowup 2s linear infinite}.loading p{color:#b6b6b6;line-height:26px;font-size:26px;font-weight:300}
+      @-webkit-keyframes rowup{0%{-webkit-transform:translate(0);transform:translate(0);opacity:0}20%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:1}80%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:1}to{-webkit-transform:translateY(-40px);transform:translateY(-40px);opacity:0}}@keyframes rowup{0%{-webkit-transform:translate(0);transform:translate(0);opacity:0}20%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:1}80%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:1}to{-webkit-transform:translateY(-40px);transform:translateY(-40px);opacity:0}}@-webkit-keyframes boxmove{0%{-webkit-transform:translate(0);transform:translate(0)}50%{-webkit-transform:translateY(-40px);transform:translateY(-40px)}to{-webkit-transform:translate(0);transform:translate(0)}}@keyframes boxmove{0%{-webkit-transform:translate(0);transform:translate(0)}50%{-webkit-transform:translateY(-40px);transform:translateY(-40px)}to{-webkit-transform:translate(0);transform:translate(0)}}.loading{height:100vh;position:relative;overflow:hidden;margin:0 auto;width:1160px}.loading-box{margin-top:50vh}.loading-row{-webkit-animation:rowup 1s linear infinite;animation:rowup 1s linear infinite}.loading p{color:#b6b6b6;line-height:26px;font-size:26px;font-weight:300}
       @media screen and (max-width: 414px) {
         .loading {
           width:100% !important;
@@ -49,13 +47,12 @@
         }
       }
     </style>
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1596974_j93n2ds4mj.css">
   </head>
   <body>
     <div id="app">
       <div class="loading" id="loading">
         <div class="loading-box">
-          <p class="loading-item">不够大气</p>
+          <p class="loading-item"></p>
         </div>
       </div>
     </div>

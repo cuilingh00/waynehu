@@ -3,7 +3,7 @@
     <div class="header-nav">
       <nav class="nav clearfix">
         <a href="/#/work">
-          <img src="../assets/photo.png" />
+          <img src="http://waynehu.art/%E5%A4%B4%E5%83%8F.png" />
         </a>
         <ul class="nav__menus">
           <li v-for="nav in navList" :key="nav.name">
@@ -78,7 +78,7 @@ export default {
     },
     description: {
       type: String,
-      default: 'UI/UX Product Designer'
+      default: 'Product Designer'
     },
     otherContent: {
       type: String,

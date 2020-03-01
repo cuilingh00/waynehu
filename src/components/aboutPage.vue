@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <nav-header title="Blog" description="Keep childish, keep curious" :titleList="titleList" />
+    <nav-header title="Blog" description="Love design, love life more" :titleList="titleList" />
     <div class="introduce">
       <div class="introduce-box">
         <i class="iconfont iconicon-test"></i>

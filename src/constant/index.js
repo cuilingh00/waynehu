@@ -14,13 +14,13 @@ export const navList = [{
 }, {
   name: 'RESUME',
   target: "_blank",
-  url: 'http://waynehu.art/%E8%83%A1%E4%BA%AE_resume.pdf#view=Fit',
+  url: 'http://waynehu.art/waynehu%20resume.pdf#view=Fit',
 }];
 
 // 主题分类
 export const theme1 = {
   logo:'http://waynehu.art/vina_logo.png',
-  title: 'Vina 多肉小程序',
+  title: 'vina，每个人都是生活的宠儿',
   description: '一个专注多肉植物细分门类的垂直电商内容小程序。',
   label: 'WORK · 2019年 12月 12日',
   image: 'http://waynehu.art/vina_%E9%85%8D%E5%9B%BE.jpg',
@@ -39,8 +39,8 @@ export const feature1 = {
 // 博客小卡片
 export const blog1 = [{
   tag: 'blog',
-  title: 'waynehu.art',
-  description: '设计师需要自己的个人网站吗？',
+  title: '个人设计网站 waynehu.art',
+  description: '记录自己设计之路',
   label: 'BLOG · 2019年 12月 20日',
   image: 'http://waynehu.art/blog_10.png',
   url: 'https://www.yuque.com/waynehu/blog/10',
@@ -70,8 +70,8 @@ export const blog1 = [{
 // 重要示例（中等卡片）
 export const feature2 = {
   logo:'http://waynehu.art/todolist_logo.png',
-  title: 'Plan todo list',
-  description: '一款更轻，更小，更快的待办事项',
+  title: 'Plan to do list',
+  description: '一款更轻，更小，更有趣的待办事项',
   label: 'WORK · 2019年 10月 24日',
   image: 'http://waynehu.art/todolist_%E9%85%8D%E5%9B%BE.png',
   url: 'https://www.yuque.com/waynehu/work/06',
@@ -80,7 +80,7 @@ export const feature2 = {
 // 博客小卡片
 export const work1 = [{
   tag: 'work',
-  title: '政采云APP',
+  title: '0-1，政府采购新体验-政采云 APP',
   styles: {tag: 'cloud'},
   description: '为政府采购各个角色提供移动办公的便捷',
   label: 'WORK · 2019年 11月 12日',
@@ -117,11 +117,11 @@ export const mixed1 = [{
   url: 'https://www.yuque.com/waynehu/work/02',
 }, {
   tag: 'work',
-  title: '政采云前台能力域',
-  description: '政采云平台前台交易通用业务',
-  label: 'WORK · 2019年 02月 20日',
-  image: 'http://waynehu.art/%E5%89%8D%E5%8F%B0%E8%83%BD%E5%8A%9B%E5%9F%9F.png',
-  url: 'https://www.yuque.com/waynehu/work/03',
+  title: '个人设计网站 waynehu.art',
+  description: '记录自己设计之路',
+  label: 'WORK · 2019年 12月 20日',
+  image: 'http://waynehu.art/blog_10.png',
+  url: 'https://www.yuque.com/waynehu/blog/10',
 }, {
   tag: 'blog',
   title: '好久不见',
